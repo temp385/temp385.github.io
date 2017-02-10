@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="cache-control" content="no-cache">
+        <meta http-equiv="pragma" content="no-cache">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Currency Fair Test</title>
+		<!-- link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<!-- script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script -->
+		<!-- script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script -->  
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="css/custom_fonts.css">
+		<link rel="stylesheet" href="css/custom.css">
+		<!-- link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Source Sans Pro:300,400,600" -->
+		<style>
+
+		</style>
+	</head>
+	<body onresize="fillHeight()" onload="fillHeight()" onscroll="affixPanel()">
+		<div class="row">
+			<div id="header" class="header col-sm-12" style="background-color: #32323C;">
+				<div class="col-xs-10 col-offset-sm-1">
+					<img src="img/CF_logo_RGB_NEG.svg" style="height: 66px;">
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-11 col-xs-10 col-offset-sm-1">
+				<div class="row">
+				
+					<!-- Left panel -->
+					<div id="l_panel" class="col-sm-7">
+						<div class="row margin-bot-45">
+							<div class="col-sm-11">
+								<div class="col-sm-4 col-xs-4 pill-custom-active">
+									<a href="#"><p><small>Step 1</small><br/>Transaction info</p></a>
+								</div>
+								<div class="col-sm-4 col-xs-4 pill-custom-inactive">
+									<a href="#"><p><small>Step 2</small><br/>Recipient info</p></a>
+								</div>
+								<div class="col-sm-4 col-xs-4 pill-custom-inactive">
+									<a href="#"><p><small>Step 3</small><br/>Make paymet</p></a>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-sm-11 margin-bot-30">
+								<cp1>Let's set up your transaction!</cp1>
+								<cp1><small>Specify the amount to be sent or received.</small></cp1>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-sm-11">
+								<div class="panel-rounded-top panel-active">
+									<ch3 class="active">YOU SEND</ch3>
+									<ch2>€ 2,000<small>.00</small></ch2>
+									<div class="flag-tag">
+										<div class="flag-icon flag-eu"></div>
+										<div class="flag-text">EUR</div>
+									</div>
+								</div>
+								<div class="panel-rounded-bottom">
+									<ch3>RECEIVER GETS</ch3>
+									<ch2>&pound; 1,717<small>.94</small></ch2>
+									<div class="flag-tag">
+										<div class="flag-icon flag-uk"></div>
+										<div class="flag-text">GBP</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<button id="modalButton" class="btn btn-blue">Next</button>
+						</div>
+						<div class="row">
+							<div class="col-sm-11 footer">
+								<span class="left">&copy; 2016 CurrencyFair</span>
+								<span class="right"><a href="#">Legal Stuff</a></span>
+								<span class="right"><a href="#">Help & Support</a></span>
+								
+							</div>
+						</div>
+					</div>
+					
+					<!-- Right panel -->
+					<div id="r_panel" class="col-sm-5" style="background-color: #FBFBFB; height: 100px;">
+						<div id="afix_panel" class="row" style="position: relative; top: 50px;">
+							<div class="col-sm-7 col-xs-10 col-offset-sm-1" style="min-width: 250px;">
+								<div class="panel-rounded-top-small header-grey">
+									<cp1>Sending Details</cp1>
+								</div>
+								<div class="panel-middle-small">
+									<p>You send<span class="right darker">€2000.00</span></p>
+								</div>
+								<div class="panel-middle-small header-grey">
+									<cp1>Receiving Details<span class="right info-text">As of right now <i class="fa fa-question-circle"></i></span></cp1>
+								</div>
+								<div class="panel-middle-small panel-extended">
+									<p>Rate<span class="right">0.86022</span></p>
+									<p>Fee<span class="right">&pound;2,50</span></p>
+									<p>Delivery date<span class="right">25th November</span></p>
+									<p>Recipient gets<span class="right darker">&pound;1717.94</span></p>
+								</div>
+								<div class="panel-rounded-bottom-small">
+									<cp2>You save &pound;66.19 compared your bank!</cp2>
+								</div>
+							</div>
+						</div>
+						<p id="demo"></p>
+					</div>
+				</div>
+			</div>
+		</div>
+	<!-- Reserved for modal -->
+		<div id="securityModal" class="modal">
+
+  <!-- Modal content -->
+			<div class="modal-content">
+				<div class="modal-header">
+					<p class="modal-p1"><i class="fa fa-lock fa-lg fa-fw" style="color: #D4DDE3"></i> Identity verification required</p>
+					<p class="modal-p2">For your security, we ocassionally require you to verify your identity by entering a code sent to your mobile device.</p>
+				</div>
+				<div class="modal-body" align="center">
+					<div style="position: relative; width: 400px;">
+						<p>Enter the code sent via SMS to <span class="tel-a">+353</span><span class="tel-b">872251177</span></p>
+						<p>
+							<input class="input-lg" maxlength="1">
+							<input class="input-lg" maxlength="1">
+							<input class="input-lg" maxlength="1">
+							<input class="input-lg" maxlength="1">
+							<input class="input-lg" maxlength="1">
+							<input class="input-lg" maxlength="1">
+						</p>
+						<p align="left" class="modal-small-p"><i class="fa fa-refresh fa-lg fa-fw" style="color: #6EC0E6;"></i> Receive a new code<span style="float: right;"><i class="fa fa-phone fa-lg fa-fw" style="color: #6EC0E6;"></i> Receive code via call instead</span></p>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button class="btn btn-blue btn-small btn-dis">Verify Identity</button> <button id="back" class="btn btn-white btn-small">Back</button><span class="modal-small-p" style="float: right; padding-top: 10px; color: #6EC0E6;">I can't access this mobile device</span>
+				</div>
+			</div>
+		</div>
+	<!-- End modal -->
+	</body>
+	<script>
+	<!-- Keep right panel window size -->
+	function fillHeight() {
+		var s = document.body.offsetHeight;
+		var h_window = window.innerHeight;
+		var h_header = document.getElementById("header").clientHeight;
+		var h_right_panel = h_window;
+		var h_left_panel = document.getElementById("l_panel").clientHeight;
+		if (h_left_panel > (h_window-h_header)) {
+			h_right_panel=h_left_panel;
+		} else {
+			h_right_panel=(h_window-h_header);
+		}
+		document.getElementById("r_panel").style.height=h_right_panel+"px";
+	}
+	<!-- Affix right panel prototype -->
+	function affixPanel() {
+		var s = (window.pageYOffset !== undefined) ? window.pageYOffset : (document.documentElement || document.body.parentNode || document.body).scrollTop;
+		//var s = window.scrollY;
+		if (window.innerWidth > 767) {
+			document.getElementById("afix_panel").style.top=(s+50) + "px";
+		} else {
+			document.getElementById("afix_panel").style.top=50 + "px";
+		}
+	}
+	<!-- Modal control -->
+	var modal = document.getElementById('securityModal');
+	var btn = document.getElementById("modalButton");
+	var span = document.getElementById("back");
+
+	// Button open modal
+	btn.onclick = function() {
+		modal.style.display = "block";
+	}
+	// Close modal
+	span.onclick = function() {
+		modal.style.display = "none";
+	}
+	// Close outside
+	window.onclick = function(event) {
+		if (event.target == modal) {
+			modal.style.display = "none";
+		}
+	}
+	</script>
+</html>

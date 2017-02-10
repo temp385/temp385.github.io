@@ -1,0 +1,12 @@
+@font-face {
+	font-family: postGrotesk;
+	src: url(PostGrotesk-Book.ttf);
+}
+@font-face {
+	font-family: postGroteskBold;
+	src: url(../fonts/post-grotesk/PostGrotesk-AllStyles-v1.010-TTF-WINDOWS/PostGrotesk-Bold.ttf);
+}
+@font-face {
+	font-family: postGroteskMedium;
+	src: url(../fonts/post-grotesk/PostGrotesk-AllStyles-v1.010-TTF-WINDOWS/PostGrotesk-Medium.ttf);
+}
