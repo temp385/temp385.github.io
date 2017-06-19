@@ -121,22 +121,17 @@ app.controller('ngCtrl', function($scope, $http) {
 		return duration;
 	}
 	
-	$scope.stopVideo = function() {
-		$('.videoModal').on('hide.bs.modal', function(e) {    
-			var $if = $(e.delegateTarget).find('iframe');
-			var src = $if.attr("src");
-			$if.attr("src", '/empty.html');
-			$if.attr("src", src);
-		});
-	}
+
+	$('.videoModal').on('hide.bs.modal', function(e) {    
+		var $if = $(e.delegateTarget).find('iframe');
+		var src = $if.attr("src");
+		$if.attr("src", '/empty.html');
+		$if.attr("src", src);
+	});
+
 	
 	$scope.selectVideo = function(id) {
-		var $v=$(".videoModal").find("iframe");
-		$v.attr("src", "https://www.youtube.com/embed/" + id);
-		
-		
-		
-		
+		$(".videoModal").find("iframe").attr("src", "https://www.youtube.com/embed/" + id);
 	}
 	
 });
