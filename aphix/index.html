@@ -4,21 +4,44 @@
 		<meta charset="utf-8">
 		<title>Aphix test</title>
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<link rel="stylesheet" href="custom.css">
 	</head>
 <body>
 
 <div ng-app="ngApp" ng-controller="ngCtrl"> 
-
-<p>YouTube video search</p>
-<input type="text" id="search_term" ng-model="searchTerm">
-<button ng-click="buildQuery()">Search</button>
-<button ng-disabled="btn_prev_disabled" ng-model="token_prev" ng-click="buildQueryPrev()">Previous</button>{{btn_prev_switch}}
-<button ng-disabled="btn_next_disabled" ng-model="token_next" ng-click="buildQueryNext()">Next</button>
-<div ng-repeat="x in query">
-	<div>{{x.snippet.title}}</div>
-	<div><img src="{{x.snippet.thumbnails.default.url}}"> Duration: {{videoDetail[$index]}}</div>
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12">
+				<h3>YouTube video search</h3>
+				<div class="input-group">
+					<input class="form-control" placeholder="Search" type="text" id="search_term" ng-model="searchTerm">
+					<div class="input-group-btn">
+						<button class="btn btn-default" ng-click="buildQuery()"> <i class="glyphicon glyphicon-search"></i></button>
+						<button class="btn btn-default" ng-disabled="btn_prev_disabled" ng-model="token_prev" ng-click="buildQueryPrev()"><i class="glyphicon glyphicon-chevron-left"></i></button>
+						<button class="btn btn-default" ng-disabled="btn_next_disabled" ng-model="token_next" ng-click="buildQueryNext()"><i class="glyphicon glyphicon-chevron-right"></i></button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<br/>
+		<div class="row fix">
+			<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3" ng-repeat="x in query">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h4 class="truncate" title="{{x.snippet.title}}">{{x.snippet.title}}</h4>
+					</div>
+					<div class="panel-body text-center">
+						<img src="{{x.snippet.thumbnails.default.url}}">
+					</div>
+					<div class="panel-footer">
+						Duration: {{videoDetail[$index]}}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
-
 
 
 <script type="text/javascript" src="custom_functions.js"></script>
