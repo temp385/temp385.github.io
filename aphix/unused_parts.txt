@@ -1,0 +1,15 @@
+<div class="row fix">
+	<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3" ng-repeat="x in query">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h4 class="truncate" title="{{x.snippet.title}}">{{x.snippet.title}}</h4>
+			</div>
+			<div class="panel-body text-center" style="background-image: url({{x.snippet.thumbnails.default.url}}); background-size: cover">
+				<img class="img-responsive" src="{{x.snippet.thumbnails.default.url}}">
+			</div>
+			<div class="panel-footer">
+				Duration: {{videoDetail[$index]}}
+			</div>
+		</div>
+	</div>
+</div>

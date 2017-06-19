@@ -1,17 +1,18 @@
 var app = angular.module('ngApp', []);
 app.controller('ngCtrl', function($scope, $http) {
+	$scope.maxResults="5";
 	$scope.btn_prev_disabled=true;
 	$scope.btn_next_disabled=true;
 	$scope.buildQuery = function() {
 		var arg_str=$scope.searchTerm.replace(/[^\w\s]/gi, '');
-		var get_str="https://www.googleapis.com/youtube/v3/search?maxResults=5&type=video&part=snippet&q=" + arg_str + "&key=AIzaSyDzqrV5otkF16h8F-9HKAMb_IGVBxG16qg";
+		var get_str="https://www.googleapis.com/youtube/v3/search?maxResults=" + $scope.maxResults + "&type=video&part=snippet&q=" + arg_str + "&key=AIzaSyDzqrV5otkF16h8F-9HKAMb_IGVBxG16qg";
 		executeQuery(get_str);
 	}
 	$scope.buildQueryNext = function() {
 		var arg_str=$scope.searchTerm.replace(/[^\w\s]/gi, '');
 		var token=$scope.token_next;
 		console.log(token);
-		var get_str="https://www.googleapis.com/youtube/v3/search?maxResults=5&type=video&pageToken=" + token + "&part=snippet&q=" + arg_str + "&key=AIzaSyDzqrV5otkF16h8F-9HKAMb_IGVBxG16qg";
+		var get_str="https://www.googleapis.com/youtube/v3/search?maxResults=" + $scope.maxResults + "&type=video&pageToken=" + token + "&part=snippet&q=" + arg_str + "&key=AIzaSyDzqrV5otkF16h8F-9HKAMb_IGVBxG16qg";
 		executeQuery(get_str);
 	}
 	$scope.buildQueryPrev = function() {
@@ -19,7 +20,7 @@ app.controller('ngCtrl', function($scope, $http) {
 		var token=$scope.token_prev;
 
 		console.log(token);
-		var get_str="https://www.googleapis.com/youtube/v3/search?maxResults=5&type=video&pageToken=" + token + "&part=snippet&q=" + arg_str + "&key=AIzaSyDzqrV5otkF16h8F-9HKAMb_IGVBxG16qg";
+		var get_str="https://www.googleapis.com/youtube/v3/search?maxResults=" + $scope.maxResults + "&type=video&pageToken=" + token + "&part=snippet&q=" + arg_str + "&key=AIzaSyDzqrV5otkF16h8F-9HKAMb_IGVBxG16qg";
 		executeQuery(get_str);
 	}
 	
@@ -120,8 +121,18 @@ app.controller('ngCtrl', function($scope, $http) {
 		return duration;
 	}
 	
-	$scope.myFunction = function() {
-		
+	$scope.stopVideo = function() {
+		$('.videoModal').on('hide.bs.modal', function(e) {    
+			var $if = $(e.delegateTarget).find('iframe');
+			var src = $if.attr("src");
+			$if.attr("src", '/empty.html');
+			$if.attr("src", src);
+		});
+	}
+	
+	$scope.selectVideo = function(id) {
+		var $v=$(".videoModal").find("iframe");
+		$v.attr("src", "https://www.youtube.com/embed/" + id);
 		
 		
 		

@@ -4,6 +4,8 @@
 		<meta charset="utf-8">
 		<title>Aphix test</title>
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script src="modal.js"></script>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 		<link rel="stylesheet" href="custom.css">
 	</head>
@@ -14,6 +16,11 @@
 		<div class="row">
 			<div class="col-sm-12">
 				<h3>YouTube video search</h3>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-11">
+				
 				<div class="input-group">
 					<input class="form-control" placeholder="Search" type="text" id="search_term" ng-model="searchTerm">
 					<div class="input-group-btn">
@@ -23,24 +30,57 @@
 					</div>
 				</div>
 			</div>
+			<div class="col-sm-1">
+				<select class="form-control" ng-model="maxResults">
+					<option>5</option>
+					<option>10</option>
+					<option>20</option>
+					<option>50</option>
+				</select>
+			</div>
 		</div>
 		<br/>
+		
 		<div class="row fix">
-			<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3" ng-repeat="x in query">
-				<div class="panel panel-default">
-					<div class="panel-heading">
-						<h4 class="truncate" title="{{x.snippet.title}}">{{x.snippet.title}}</h4>
-					</div>
-					<div class="panel-body text-center">
-						<img src="{{x.snippet.thumbnails.default.url}}">
-					</div>
-					<div class="panel-footer">
-						Duration: {{videoDetail[$index]}}
-					</div>
+			<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4" ng-repeat="x in query">
+				<div class="well well-sm">
+						<a href="#" data-toggle="modal" data-target="#myModal" ng-click="selectVideo(x.id.videoId)">
+							<div class="row">
+								<img class="img-responsive col-xs-6" src="{{x.snippet.thumbnails.default.url}}">
+								<div class="caption col-xs-6">
+									<p title="{{x.snippet.title}}">{{x.snippet.title}}</p>
+								</div>
+							</div>
+							
+						</a>
+					<h4><span class="label label-danger" style="position: absolute; left: 25px; bottom: 40px;">{{videoDetail[$index]}}</span></h4>
 				</div>
 			</div>
 		</div>
 	</div>
+	
+	<!-- Modal -->
+	<div id="myModal" class="modal fade videoModal" role="dialog">
+		<div class="modal-dialog">
+
+		<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" ng-click="stopVideo()">&times;</button>
+					<h4 class="modal-title">Modal Header</h4>
+				</div>
+				<div class="modal-body">
+					<p>Some text in the modal.</p>
+					<iframe width="560" height="315" src="https://www.youtube.com/embed/ET-I3OjlXqs" frameborder="0" allowfullscreen></iframe>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal" ng-click="stopVideo()">Close</button>
+				</div>
+			</div>
+
+		</div>
+	</div>
+	
 </div>
 
 
