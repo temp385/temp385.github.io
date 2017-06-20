@@ -3,11 +3,14 @@
 	<head>
 		<meta charset="utf-8">
 		<title>Aphix test</title>
-		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-		<script src="modal.js"></script>
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-		<link rel="stylesheet" href="custom.css">
+		<!--script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script-->
+		<script src="libs/angular.min.js"></script>
+		<!--script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script-->
+		<script src="libs/jquery-3.2.1.min.js"></script>
+		<script src="libs/modal.js"></script>
+		<!--link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"-->
+		<link rel="stylesheet" href="libs/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/custom.css">
 	</head>
 <body>
 
@@ -42,7 +45,7 @@
 		<br/>
 		
 		<div class="row fix">
-			<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4" ng-repeat="x in query">
+			<div class="clearfix col-xs-12 col-sm-6 col-md-4 col-lg-4" ng-repeat="x in query">
 				<div class="well well-sm">
 						<a href="#" data-toggle="modal" data-target="#myModal" ng-click="selectVideo(x)">
 							<div class="row">
@@ -71,7 +74,7 @@
 			<div class="modal-content">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal" ng-click="stopVideo()">&times;</button>
-					<h4 class="modal-title">Modal Header</h4>
+					<h3 class="modal-title">Modal Header</h3>
 				</div>
 				<div class="modal-body">
 					<iframe width="560" height="315" src="https://www.youtube.com/embed/ET-I3OjlXqs" frameborder="0" allowfullscreen></iframe>
@@ -89,7 +92,7 @@
 </div>
 
 
-<script type="text/javascript" src="custom_functions.js"></script>
+<script type="text/javascript" src="libs/custom_functions.js"></script>
 
 
 </body>
