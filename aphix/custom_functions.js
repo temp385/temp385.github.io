@@ -130,8 +130,10 @@ app.controller('ngCtrl', function($scope, $http) {
 	});
 
 	
-	$scope.selectVideo = function(id) {
-		$(".videoModal").find("iframe").attr("src", "https://www.youtube.com/embed/" + id);
+	$scope.selectVideo = function(x) {
+		$(".videoModal").find("iframe").attr("src", "https://www.youtube.com/embed/" + x.id.videoId);
+		$(".videoModal").find(".modal-header").empty().append("<h3>" + x.snippet.title + "</h3>");
+		$(".videoModal").find("#description").empty().append(x.snippet.description);
 	}
 	
 });

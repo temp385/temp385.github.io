@@ -44,7 +44,7 @@
 		<div class="row fix">
 			<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4" ng-repeat="x in query">
 				<div class="well well-sm">
-						<a href="#" data-toggle="modal" data-target="#myModal" ng-click="selectVideo(x.id.videoId)">
+						<a href="#" data-toggle="modal" data-target="#myModal" ng-click="selectVideo(x)">
 							<div class="row">
 								<img class="img-responsive col-xs-6" src="{{x.snippet.thumbnails.default.url}}">
 								<div class="caption col-xs-6">
@@ -70,8 +70,9 @@
 					<h4 class="modal-title">Modal Header</h4>
 				</div>
 				<div class="modal-body">
-					<p>Some text in the modal.</p>
 					<iframe width="560" height="315" src="https://www.youtube.com/embed/ET-I3OjlXqs" frameborder="0" allowfullscreen></iframe>
+					<hr>
+					<p id="description"></<p>
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-default" data-dismiss="modal" ng-click="stopVideo()">Close</button>
