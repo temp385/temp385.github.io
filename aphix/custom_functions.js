@@ -118,6 +118,9 @@ app.controller('ngCtrl', function($scope, $http) {
 		} else {
 			duration = hh + ":" + mm + ":" + ss;
 		}
+		if (duration == "0:00") {
+			duration="LIVE";
+		}
 		return duration;
 	}
 	
