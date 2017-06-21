@@ -47,8 +47,9 @@
 		
 		<div class="row fix">
 			<div class="clearfix col-xs-12 col-sm-6 col-md-4 col-lg-4" ng-repeat="x in query">
-				<div class="well well-sm">
+				
 						<a href="#" data-toggle="modal" data-target="#myModal" ng-click="selectVideo(x)">
+						<div class="well well-sm">
 							<div class="row">
 								<div class="col-xs-6">
 									<img class="img-responsive hidden-xs" src="{{x.snippet.thumbnails.default.url}}">
@@ -59,10 +60,10 @@
 									<p title="{{x.snippet.title}}">{{x.snippet.title}}</p>
 								</div>
 							</div>
-							
+						</div>	
 						</a>
 					
-				</div>
+				
 			</div>
 		</div>
 	</div>
